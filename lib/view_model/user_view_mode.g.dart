@@ -6,7 +6,7 @@ part of 'user_view_mode.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$userViewModeHash() => r'dbd4b3abe904381d1767a39fb7576f0283790e0d';
+String _$userViewModeHash() => r'edffe6622f375df5dd09224abada57e86b729bf5';
 
 /// See also [UserViewMode].
 @ProviderFor(UserViewMode)

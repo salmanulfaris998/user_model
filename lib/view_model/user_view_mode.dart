@@ -1,6 +1,7 @@
 import 'package:app2/core/utils/validation_utils.dart';
 import 'package:app2/model/model_user.dart';
 import 'package:app2/model/validation_errors.dart';
+import 'package:app2/services/storage_service.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'user_view_mode.freezed.dart';
@@ -44,7 +45,7 @@ class UserViewMode extends _$UserViewMode {
     );
   }
 
-  void saveUser() {
+  void saveUser() async {
     if (!state.isValid) {
       state = state.copyWith(
           validationErrors: state.validationErrors.copyWith(
@@ -54,5 +55,7 @@ class UserViewMode extends _$UserViewMode {
       return;
     }
     state = state.copyWith(listOfUsers: [...state.listOfUsers, state.user]);
+    final storagesrvices = await ref.watch(storageserviceProvider.future);
+    storagesrvices.saveList(state.listOfUsers);
   }
 }

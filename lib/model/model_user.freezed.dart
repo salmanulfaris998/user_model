@@ -14,10 +14,17 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+ModelUser _$ModelUserFromJson(Map<String, dynamic> json) {
+  return _ModelUser.fromJson(json);
+}
+
 /// @nodoc
 mixin _$ModelUser {
   String get name => throw _privateConstructorUsedError;
   int get age => throw _privateConstructorUsedError;
+
+  /// Serializes this ModelUser to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
   /// Create a copy of ModelUser
   /// with the given fields replaced by the non-null parameter values.
@@ -106,9 +113,12 @@ class __$$ModelUserImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-class _$ModelUserImpl extends _ModelUser {
+@JsonSerializable()
+class _$ModelUserImpl extends _ModelUser with DiagnosticableTreeMixin {
   const _$ModelUserImpl({this.name = '', this.age = 0}) : super._();
+
+  factory _$ModelUserImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ModelUserImplFromJson(json);
 
   @override
   @JsonKey()
@@ -118,8 +128,17 @@ class _$ModelUserImpl extends _ModelUser {
   final int age;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ModelUser(name: $name, age: $age)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ModelUser'))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('age', age));
   }
 
   @override
@@ -131,6 +150,7 @@ class _$ModelUserImpl extends _ModelUser {
             (identical(other.age, age) || other.age == age));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, age);
 
@@ -141,12 +161,22 @@ class _$ModelUserImpl extends _ModelUser {
   @pragma('vm:prefer-inline')
   _$$ModelUserImplCopyWith<_$ModelUserImpl> get copyWith =>
       __$$ModelUserImplCopyWithImpl<_$ModelUserImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ModelUserImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _ModelUser extends ModelUser {
   const factory _ModelUser({final String name, final int age}) =
       _$ModelUserImpl;
   const _ModelUser._() : super._();
+
+  factory _ModelUser.fromJson(Map<String, dynamic> json) =
+      _$ModelUserImpl.fromJson;
 
   @override
   String get name;
