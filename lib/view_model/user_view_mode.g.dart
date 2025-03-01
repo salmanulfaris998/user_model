@@ -6,21 +6,19 @@ part of 'user_view_mode.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$userViewModeHash() => r'fcf9344d841323d3c513746333d1ce13efdd9a63';
+String _$userViewModeHash() => r'dbd4b3abe904381d1767a39fb7576f0283790e0d';
 
 /// See also [UserViewMode].
 @ProviderFor(UserViewMode)
 final userViewModeProvider =
     AutoDisposeNotifierProvider<UserViewMode, Userstate>.internal(
-      UserViewMode.new,
-      name: r'userViewModeProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$userViewModeHash,
-      dependencies: null,
-      allTransitiveDependencies: null,
-    );
+  UserViewMode.new,
+  name: r'userViewModeProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$userViewModeHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
 
 typedef _$UserViewMode = AutoDisposeNotifier<Userstate>;
 // ignore_for_file: type=lint

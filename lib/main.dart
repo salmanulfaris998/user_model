@@ -20,22 +20,25 @@ class MainApp extends ConsumerWidget {
             child: Column(
               children: [
                 TextFormField(
-                  onChanged:
-                      (name) => ref
-                          .read(userViewModeProvider.notifier)
-                          .updateName(name),
+                  onChanged: (name) =>
+                      ref.read(userViewModeProvider.notifier).updateName(name),
                   decoration: InputDecoration(
+                    errorText: userstate.validationErrors.errors
+                        ? userstate.validationErrors.name
+                        : null,
                     border: OutlineInputBorder(),
                     hintText: 'name',
                   ),
                 ),
                 SizedBox(height: 30),
                 TextFormField(
-                  onChanged:
-                      (age) => ref
-                          .read(userViewModeProvider.notifier)
-                          .updateage(int.parse(age)),
+                  onChanged: (age) => ref
+                      .read(userViewModeProvider.notifier)
+                      .updateage(int.parse(age)),
                   decoration: InputDecoration(
+                    errorText: userstate.validationErrors.errors
+                        ? userstate.validationErrors.age
+                        : null,
                     border: OutlineInputBorder(),
                     hintText: 'age',
                   ),
@@ -45,22 +48,20 @@ class MainApp extends ConsumerWidget {
                   onPressed: () {
                     ref.read(userViewModeProvider.notifier).saveUser();
                   },
-                  child: Text('Save'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.amber,
                   ),
+                  child: Text('Save'),
                 ),
                 Expanded(
                   child: ListView.builder(
                     itemCount: userstate.listOfUsers.length,
-
-                    itemBuilder:
-                        (context, item) => ListTile(
-                          title: Text(userstate.listOfUsers[item].name),
-                          subtitle: Text(
-                            userstate.listOfUsers[item].age.toString(),
-                          ),
-                        ),
+                    itemBuilder: (context, item) => ListTile(
+                      title: Text(userstate.listOfUsers[item].name),
+                      subtitle: Text(
+                        userstate.listOfUsers[item].age.toString(),
+                      ),
+                    ),
                   ),
                 ),
               ],

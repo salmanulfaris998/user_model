@@ -12,13 +12,13 @@ part of 'user_view_mode.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$Userstate {
   ModelUser get user => throw _privateConstructorUsedError;
   List<ModelUser> get listOfUsers => throw _privateConstructorUsedError;
+  ValidationErrors get validationErrors => throw _privateConstructorUsedError;
 
   /// Create a copy of Userstate
   /// with the given fields replaced by the non-null parameter values.
@@ -32,9 +32,13 @@ abstract class $UserstateCopyWith<$Res> {
   factory $UserstateCopyWith(Userstate value, $Res Function(Userstate) then) =
       _$UserstateCopyWithImpl<$Res, Userstate>;
   @useResult
-  $Res call({ModelUser user, List<ModelUser> listOfUsers});
+  $Res call(
+      {ModelUser user,
+      List<ModelUser> listOfUsers,
+      ValidationErrors validationErrors});
 
   $ModelUserCopyWith<$Res> get user;
+  $ValidationErrorsCopyWith<$Res> get validationErrors;
 }
 
 /// @nodoc
@@ -51,22 +55,25 @@ class _$UserstateCopyWithImpl<$Res, $Val extends Userstate>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? user = null, Object? listOfUsers = null}) {
-    return _then(
-      _value.copyWith(
-            user:
-                null == user
-                    ? _value.user
-                    : user // ignore: cast_nullable_to_non_nullable
-                        as ModelUser,
-            listOfUsers:
-                null == listOfUsers
-                    ? _value.listOfUsers
-                    : listOfUsers // ignore: cast_nullable_to_non_nullable
-                        as List<ModelUser>,
-          )
-          as $Val,
-    );
+  $Res call({
+    Object? user = null,
+    Object? listOfUsers = null,
+    Object? validationErrors = null,
+  }) {
+    return _then(_value.copyWith(
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as ModelUser,
+      listOfUsers: null == listOfUsers
+          ? _value.listOfUsers
+          : listOfUsers // ignore: cast_nullable_to_non_nullable
+              as List<ModelUser>,
+      validationErrors: null == validationErrors
+          ? _value.validationErrors
+          : validationErrors // ignore: cast_nullable_to_non_nullable
+              as ValidationErrors,
+    ) as $Val);
   }
 
   /// Create a copy of Userstate
@@ -78,21 +85,35 @@ class _$UserstateCopyWithImpl<$Res, $Val extends Userstate>
       return _then(_value.copyWith(user: value) as $Val);
     });
   }
+
+  /// Create a copy of Userstate
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ValidationErrorsCopyWith<$Res> get validationErrors {
+    return $ValidationErrorsCopyWith<$Res>(_value.validationErrors, (value) {
+      return _then(_value.copyWith(validationErrors: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
 abstract class _$$UserstateImplCopyWith<$Res>
     implements $UserstateCopyWith<$Res> {
   factory _$$UserstateImplCopyWith(
-    _$UserstateImpl value,
-    $Res Function(_$UserstateImpl) then,
-  ) = __$$UserstateImplCopyWithImpl<$Res>;
+          _$UserstateImpl value, $Res Function(_$UserstateImpl) then) =
+      __$$UserstateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ModelUser user, List<ModelUser> listOfUsers});
+  $Res call(
+      {ModelUser user,
+      List<ModelUser> listOfUsers,
+      ValidationErrors validationErrors});
 
   @override
   $ModelUserCopyWith<$Res> get user;
+  @override
+  $ValidationErrorsCopyWith<$Res> get validationErrors;
 }
 
 /// @nodoc
@@ -100,39 +121,44 @@ class __$$UserstateImplCopyWithImpl<$Res>
     extends _$UserstateCopyWithImpl<$Res, _$UserstateImpl>
     implements _$$UserstateImplCopyWith<$Res> {
   __$$UserstateImplCopyWithImpl(
-    _$UserstateImpl _value,
-    $Res Function(_$UserstateImpl) _then,
-  ) : super(_value, _then);
+      _$UserstateImpl _value, $Res Function(_$UserstateImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of Userstate
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? user = null, Object? listOfUsers = null}) {
-    return _then(
-      _$UserstateImpl(
-        user:
-            null == user
-                ? _value.user
-                : user // ignore: cast_nullable_to_non_nullable
-                    as ModelUser,
-        listOfUsers:
-            null == listOfUsers
-                ? _value._listOfUsers
-                : listOfUsers // ignore: cast_nullable_to_non_nullable
-                    as List<ModelUser>,
-      ),
-    );
+  $Res call({
+    Object? user = null,
+    Object? listOfUsers = null,
+    Object? validationErrors = null,
+  }) {
+    return _then(_$UserstateImpl(
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as ModelUser,
+      listOfUsers: null == listOfUsers
+          ? _value._listOfUsers
+          : listOfUsers // ignore: cast_nullable_to_non_nullable
+              as List<ModelUser>,
+      validationErrors: null == validationErrors
+          ? _value.validationErrors
+          : validationErrors // ignore: cast_nullable_to_non_nullable
+              as ValidationErrors,
+    ));
   }
 }
 
 /// @nodoc
 
-class _$UserstateImpl implements _Userstate {
-  const _$UserstateImpl({
-    this.user = const ModelUser(),
-    final List<ModelUser> listOfUsers = const [],
-  }) : _listOfUsers = listOfUsers;
+class _$UserstateImpl extends _Userstate {
+  const _$UserstateImpl(
+      {this.user = const ModelUser(),
+      final List<ModelUser> listOfUsers = const [],
+      this.validationErrors = const ValidationErrors()})
+      : _listOfUsers = listOfUsers,
+        super._();
 
   @override
   @JsonKey()
@@ -147,8 +173,12 @@ class _$UserstateImpl implements _Userstate {
   }
 
   @override
+  @JsonKey()
+  final ValidationErrors validationErrors;
+
+  @override
   String toString() {
-    return 'Userstate(user: $user, listOfUsers: $listOfUsers)';
+    return 'Userstate(user: $user, listOfUsers: $listOfUsers, validationErrors: $validationErrors)';
   }
 
   @override
@@ -157,18 +187,15 @@ class _$UserstateImpl implements _Userstate {
         (other.runtimeType == runtimeType &&
             other is _$UserstateImpl &&
             (identical(other.user, user) || other.user == user) &&
-            const DeepCollectionEquality().equals(
-              other._listOfUsers,
-              _listOfUsers,
-            ));
+            const DeepCollectionEquality()
+                .equals(other._listOfUsers, _listOfUsers) &&
+            (identical(other.validationErrors, validationErrors) ||
+                other.validationErrors == validationErrors));
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    user,
-    const DeepCollectionEquality().hash(_listOfUsers),
-  );
+  int get hashCode => Object.hash(runtimeType, user,
+      const DeepCollectionEquality().hash(_listOfUsers), validationErrors);
 
   /// Create a copy of Userstate
   /// with the given fields replaced by the non-null parameter values.
@@ -179,16 +206,19 @@ class _$UserstateImpl implements _Userstate {
       __$$UserstateImplCopyWithImpl<_$UserstateImpl>(this, _$identity);
 }
 
-abstract class _Userstate implements Userstate {
-  const factory _Userstate({
-    final ModelUser user,
-    final List<ModelUser> listOfUsers,
-  }) = _$UserstateImpl;
+abstract class _Userstate extends Userstate {
+  const factory _Userstate(
+      {final ModelUser user,
+      final List<ModelUser> listOfUsers,
+      final ValidationErrors validationErrors}) = _$UserstateImpl;
+  const _Userstate._() : super._();
 
   @override
   ModelUser get user;
   @override
   List<ModelUser> get listOfUsers;
+  @override
+  ValidationErrors get validationErrors;
 
   /// Create a copy of Userstate
   /// with the given fields replaced by the non-null parameter values.
